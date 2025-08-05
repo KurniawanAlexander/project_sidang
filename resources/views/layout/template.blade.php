@@ -59,12 +59,22 @@
 
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
-                    <!-- Content -->
-                    <div class="container-xxl flex-grow-1 container-p-y">
-                        <div class="card p-5">
-                            @yield('main')
+                    @if (!request()->is('/'))
+                        <!-- Content -->
+                        <div class="container-xxl flex-grow-1 container-p-y">
+                            <div class="card p-5">
+                                @yield('main')
+                            </div>
                         </div>
-                    </div>
+                    @else
+                        {{-- Tampilan khusus untuk halaman / --}}
+                        <div class="container-xxl flex-grow-1 container-p-y">
+                            <div class="card p-5 text-center shadow-sm">
+                                <h2 class="mb-9 fw-bold text-dark">Selamat datang di Lexify</h2>
+                                <p class="text-muted">Silakan pilih menu di sidebar untuk melanjutkan.</p>
+                            </div>
+                        </div>
+                    @endif
                     <!-- / Content -->
 
                     <!-- Footer -->
